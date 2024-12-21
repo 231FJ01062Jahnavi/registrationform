@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book History Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input, button {
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #historyList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #historyList li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your Favorite Book Details</h2>
+        <form id="bookForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br><br>
+            
+            <label for="author">Favorite Author:</label>
+            <input type="text" id="author" name="author" required><br><br>
+            
+            <label for="book">Favorite Book:</label>
+            <input type="text" id="book" name="book" required><br><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+        
+        <h2>History</h2>
+        <ul id="historyList"></ul>
+    </div>
+
+    <script>
+        document.getElementById('bookForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const author = document.getElementById('author').value;
+            const book = document.getElementById('book').value;
+
+            const historyList = document.getElementById('historyList');
+            const newItem = document.createElement('li');
+            newItem.textContent = `Name: ${name}, Age: ${age}, Favorite Author: ${author}, Favorite Book: ${book}`;
+            historyList.appendChild(newItem);
+
+            // Clear form after submission
+            document.getElementById('bookForm').reset();
+        });
+    </script>
+</body>
+</html>
