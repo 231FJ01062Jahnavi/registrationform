@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book History Form</title>
+    <title>Issued Book Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,24 +68,27 @@
 </head>
 <body>
     <div class="container">
-        <h2>Enter Your Favorite Book Details</h2>
+        <h2>Issued Book Form</h2>
         <form id="bookForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
+            <label for="name">Student Name:</label>
+            <input type="text" id="name" name="name" required>
             
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required><br><br>
+            <label for="roll">Roll Number:</label>
+            <input type="text" id="roll" name="roll" required>
             
-            <label for="author">Favorite Author:</label>
-            <input type="text" id="author" name="author" required><br><br>
+            <label for="book">Book Title:</label>
+            <input type="text" id="book" name="book" required>
             
-            <label for="book">Favorite Book:</label>
-            <input type="text" id="book" name="book" required><br><br>
+            <label for="issueDate">Issue Date:</label>
+            <input type="date" id="issueDate" name="issueDate" required>
+            
+            <label for="returnDate">Return Date:</label>
+            <input type="date" id="returnDate" name="returnDate" required>
             
             <button type="submit">Submit</button>
         </form>
         
-        <h2>History</h2>
+        <h2>Issued Book History</h2>
         <ul id="historyList"></ul>
     </div>
 
@@ -94,13 +97,14 @@
             e.preventDefault();
 
             const name = document.getElementById('name').value;
-            const age = document.getElementById('age').value;
-            const author = document.getElementById('author').value;
+            const roll = document.getElementById('roll').value;
             const book = document.getElementById('book').value;
+            const issueDate = document.getElementById('issueDate').value;
+            const returnDate = document.getElementById('returnDate').value;
 
             const historyList = document.getElementById('historyList');
             const newItem = document.createElement('li');
-            newItem.textContent = `Name: ${name}, Age: ${age}, Favorite Author: ${author}, Favorite Book: ${book}`;
+            newItem.textContent = `Student: ${name}, Roll No: ${roll}, Book: ${book}, Issue Date: ${issueDate}, Return Date: ${returnDate}`;
             historyList.appendChild(newItem);
 
             // Clear form after submission
